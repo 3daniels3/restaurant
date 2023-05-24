@@ -117,23 +117,18 @@ class Vendedores extends Component
     }
     public function delete_index($vendedorId){
 
-        //$vendedor = Vendedor::findOrFail($vendedorId);
-        //$this->vendedor->delete();
-          // dd($vendedor);
-       // if ($vendedor) {
-         //   $vendedor->delete();
-           // dd('Vendedor eliminado exitosamente');
-        //} else {
-          //  dd('Vendedor no encontrado');
-        //}
-    
-       // $this->openeliminar = true;
+        $this->openeliminar = true;
+        $this->vendedor = Vendedor::find($vendedorId);
     }
-     
-    public function eliminar(Vendedor $Vendedor)
-     { 
-        $Vendedor->delete();
-      }
+
+    public function eliminar()
+    {
+        if ($this->vendedor) {
+            $this->vendedor->delete();
+        }
+
+        $this->cancelar();
+    }
     
     
        

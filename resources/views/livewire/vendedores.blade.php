@@ -30,8 +30,8 @@
                           <td>
                               <div class="flex justify-center items-center space-x-2">
                                   <button class="btn btn-primary" wire:click="select_index({{$item->id}})">Editar</button>
-                                  {{-- <button class="btn btn-error" wire:click="eliminar({{$item->id}})">Eliminar</button>    --}}
-                                  <button wire:click="eliminar({{ $item }})">Eliminar</button>
+                                  <button class="btn btn-error" wire:click="delete_index({{$item->id}})">Eliminar</button>   
+                                  
                               </div>
                           </td>
                       </tr>
@@ -60,22 +60,22 @@
           <div class="flex flex-col space-y-4">
               <div>
                   <x-label for="cedula" value="Cedula" />
-                  <x-input id="cedula" type="text" class="w-full" wire:model.defer="cedula" required autofocus autocomplete="cedula" />
+                  <x-input id="cedula" type="text" class="input input-bordered input-accent w-full max-w-xs" wire:model.defer="cedula" required autofocus autocomplete="cedula" />
                   <x-input-error for="cedula" />
               </div>
 
               <div>
                   <x-label for="nombre" value="Nombre" />
-                  <x-input id="nombre" type="text" class="w-full" wire:model.defer="nombre" required autofocus autocomplete="nombre" />
+                  <x-input id="nombre" type="text" class="input input-bordered input-accent w-full max-w-xs" wire:model.defer="nombre" required autofocus autocomplete="nombre" />
               </div>
 
               <div>
                   <x-label for="telefono" value="Telefono" />
-                  <x-input id="telefono" type="text" class="w-full" wire:model.defer="telefono" required autofocus autocomplete="telefono" />
+                  <x-input id="telefono" type="text" class="input input-bordered input-accent w-full max-w-xs" wire:model.defer="telefono" required autofocus autocomplete="telefono" />
                 </div>
                 <div>
                 <x-label for="correo" value="Email" />
-                <x-input id="correo" type="text" class="w-full" wire:model.defer="correo" required autofocus autocomplete="correo" />
+                <x-input id="correo" type="text" class="input input-bordered input-accent w-full max-w-xs" wire:model.defer="correo" required autofocus autocomplete="correo" />
                 </div>
                 </div>
                 </x-slot><x-slot name="footer">
@@ -98,22 +98,22 @@
                   <div class="flex flex-col space-y-4">
                       <div>
                           <x-label for="cedula-edit" value="Cedula" />
-                          <x-input id="cedula-edit" type="text" class="w-full" wire:model="cedulaEditar" required autofocus autocomplete="cedula" />
+                          <x-input id="cedula-edit" type="text" class="input input-bordered input-accent w-full max-w-xs" wire:model="cedulaEditar" required autofocus autocomplete="cedula" />
                           <x-input-error for="cedula" />
                       </div>
           
                       <div>
                           <x-label for="nombre-edit" value="Nombre" />
-                          <x-input id="nombre-edit" type="text" class="w-full" wire:model="nombreEditar" required autofocus autocomplete="nombre" />
+                          <x-input id="nombre-edit" type="text" class="input input-bordered input-accent w-full max-w-xs" wire:model="nombreEditar" required autofocus autocomplete="nombre" />
                       </div>
           
                       <div>
                           <x-label for="telefono-edit" value="Telefono" />
-                          <x-input id="telefono-edit" type="text" class="w-full" wire:model="telefonoEditar" required autofocus autocomplete="telefono" />
+                          <x-input id="telefono-edit" type="text" class="input input-bordered input-accent w-full max-w-xs" wire:model="telefonoEditar" required autofocus autocomplete="telefono" />
                       </div> 
                       <div>
                           <x-label for="correo-edit" value="Email" />
-                          <x-input id="correo-edit" type="text" class="w-full" wire:model="correoEditar" required autofocus autocomplete="correo" />
+                          <x-input id="correo-edit" type="text" class="input input-bordered input-accent w-full max-w-xs" wire:model="correoEditar" required autofocus autocomplete="correo" />
                       </div>
                   </div>
               </x-slot>
@@ -136,7 +136,9 @@
             
             <x-slot name="content">
                 <div class="flex flex-col space-y-4">
-                  <x-label>Desea eliminar el Vendedor con la cedula: {{ $cedula }} ?</x-label>
+                    @isset($vendedor)
+                    <x-label>Desea eliminar el Vendedor con la cedula: {{ $vendedor->cedula }} ?</x-label>
+                    @endisset
                 </div>
             </x-slot>
         

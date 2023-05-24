@@ -10,4 +10,12 @@ class Producto extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    protected $fillable = ['nombre', 'precio', 'descripcion'];
+
+
+    public function detalles()
+{
+    return $this->hasMany(Detalles::class, 'producto_id');
+}
 }

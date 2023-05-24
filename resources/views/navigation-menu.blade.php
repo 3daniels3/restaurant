@@ -6,14 +6,16 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-mark class="block h-9 w-auto" />
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="block h-9 w-auto">
+                            <path d="M12 2c-5.523 0-10 4.477-10 10 0 4.142 2.551 7.68 6.156 9.143v2.857h3.688v-2.857c3.605-1.463 6.156-4.978 6.156-9.143 0-5.523-4.477-10-10-10zm0 17.714c-3.133 0-5.714-2.58-5.714-5.714 0-3.133 2.581-5.714 5.714-5.714s5.714 2.581 5.714 5.714c0 3.134-2.581 5.714-5.714 5.714z"/>
+                        </svg>
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Inicio') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">

@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('factura_id');
             $table->unsignedBigInteger('producto_id' );
-            $table->integer('cantidad')->nullable();
-            $table->float('precio');
+            $table->integer('cantidad');
+            $table->decimal('subtotal', 8, 2);
+            
             
             $table->timestamps();
             $table->softDeletes();

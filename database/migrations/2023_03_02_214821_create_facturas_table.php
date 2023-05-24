@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('facturas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('vendedor_id');
-            $table->string('fecha')->nullable();
+            $table->string('codigo', 20)->unique();
+            $table->date('fecha')->nullable();
             $table->text('nombre_cliente')->nullable();
-           //$table->unsignedBigInteger('vendedor_id');
-           //$table->decimal('monto', 10, 2);
+            $table->BigInteger('vendedor_id')->unsigned();
+
             $table->timestamps();
             $table->softDeletes();
             
